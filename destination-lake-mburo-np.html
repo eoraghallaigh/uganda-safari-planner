@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Mburo NP - Uganda Safari Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-body">
+
+    <!-- Navigation -->
+    <nav class="detail-nav">
+        <a href="index.html" class="detail-nav-back">
+            ← Back to Safari Planner
+        </a>
+        <span class="detail-nav-logo">Uganda Safari June 2027</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="detail-hero" style="background-image: url('photos/lake_mburo.jpeg');">
+        <div class="detail-hero-content">
+            <h1 class="detail-hero-title">Lake Mburo NP</h1>
+            <div class="detail-meta-badges">
+                <span class="detail-badge detail-badge-accent">⏱ 1 Night Stop</span>
+                <span class="detail-badge">🌤 Sunny and dry, ~27°C (81°F).</span>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="detail-grid">
+        <!-- Left Side: Main Travel Guide -->
+        <main class="detail-main">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Destination Overview</h2>
+                <p class="detail-desc-text">Lake Mburo National Park is a compact gem characterized by acacia woodlands, grassy valleys, and a series of lakes. It is the closest savanna park to Kampala/Entebbe and is unique for being the only park in western Uganda containing impalas and massive elands. Lacking elephants and lions, Lake Mburo is ideal for walking safaris, horseback safaris, and mountain biking, allowing visitors to get remarkably close to zebras, giraffes, and buffaloes.</p>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Possible Activities</h2>
+                <div class="detail-activities-list">
+                    
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Walking safari to get up close with zebras, giraffes, and impalas.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Sunset boat cruise on Lake Mburo to spot hippos and waterbirds.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Morning game drive through acacia woodlands.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Horseback riding safari across the savanna plains.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Mountain biking safari along designated park wilderness trails.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Guided night game drive to search for leopards and spotted hyenas.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Sport fishing on Lake Mburo for tilapia.</div>
+        </div>
+        
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Accommodations & Quick Facts -->
+        <aside class="detail-sidebar">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Quick Facts</h2>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Permits Required</span>
+                    <span class="detail-fact-val">None</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Min)</span>
+                    <span class="detail-fact-val">$40 per person</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Max)</span>
+                    <span class="detail-fact-val">$80 per person</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Next Destination</span>
+                    <span class="detail-fact-val">Entebbe (Departure)</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Drive Time to Next</span>
+                    <span class="detail-fact-val">4h 30m (~290 km)</span>
+                </div>
+                
+                <!-- Map Container -->
+                <div id="detail-map" class="detail-map" style="height: 250px; width: 100%; display: block;"></div>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Accommodation Options</h2>
+                <div class="detail-accom-list">
+                    <!-- Lodge Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/rwakobo.webp" alt="Rwakobo Rock" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Rwakobo%20Rock'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-lodge">Lodge Option</span>
+                            <h3 class="detail-accom-name">Rwakobo Rock</h3>
+                            <p class="detail-accom-price">$130/night · $130 total</p>
+                            <a href="https://www.rwakoborock.com/rooms" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Camp Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/leopard_rest_camp.jpg" alt="Leopard Rest Camp" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Leopard%20Rest%20Camp'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-camp">Camp Option</span>
+                            <h3 class="detail-accom-name">Leopard Rest Camp</h3>
+                            <p class="detail-accom-price">$40/night · $40 total</p>
+                            <a href="http://leopardrestcamp.com/bush_camping.html" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Gateway Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/hyena_hill.jpg" alt="Hyena Hill Lodge" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Hyena%20Hill%20Lodge'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-gateway">Gateway Option</span>
+                            <h3 class="detail-accom-name">Hyena Hill Lodge</h3>
+                            <p class="detail-accom-price">$50/night · $50 total</p>
+                            <a href="https://www.booking.com/hotel/ug/hyena-hill-lodge.en-gb.html" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('detail-map', {
+                scrollWheelZoom: false,
+                zoomControl: true
+            }).setView([-0.6167, 30.95], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="custom-marker">9</div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+            });
+
+            L.marker([-0.6167, 30.95], { icon: icon })
+                .addTo(map)
+                .bindPopup('<strong>Lake Mburo NP</strong>')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

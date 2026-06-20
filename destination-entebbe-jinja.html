@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entebbe & Jinja - Uganda Safari Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-body">
+
+    <!-- Navigation -->
+    <nav class="detail-nav">
+        <a href="index.html" class="detail-nav-back">
+            ← Back to Safari Planner
+        </a>
+        <span class="detail-nav-logo">Uganda Safari June 2027</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="detail-hero" style="background-image: url('photos/jinja.jpg');">
+        <div class="detail-hero-content">
+            <h1 class="detail-hero-title">Entebbe & Jinja</h1>
+            <div class="detail-meta-badges">
+                <span class="detail-badge detail-badge-accent">⏱ 3 Nights Stop</span>
+                <span class="detail-badge">🌤 Warm and pleasant. Start of dry season, ~26°C (79°F).</span>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="detail-grid">
+        <!-- Left Side: Main Travel Guide -->
+        <main class="detail-main">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Destination Overview</h2>
+                <p class="detail-desc-text">Entebbe, situated on a peninsula in Lake Victoria, serves as Uganda's tranquil gateway, boasting lush botanical gardens and a relaxed lakeside atmosphere. A drive east leads to Jinja, the historical adventure capital of East Africa, famously positioned at the source of the Nile River. Here, the Nile flows out of Lake Victoria, offering world-class white-water rafting, kayaking, and scenic sunset boat cruises along the riverbanks, surrounded by colonial-era architecture and vibrant local markets.</p>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Possible Activities</h2>
+                <div class="detail-activities-list">
+                    
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Pick up rental car in Entebbe.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Drive to Jinja to see the Source of the Nile.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Experience sunset Nile cruise or white-water rafting.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Explore Entebbe Botanical Gardens for birdwatching and monkey sightings.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Try stand-up paddleboarding (SUP) or kayaking on the Nile.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Take a quad biking or mountain biking tour along the banks of the Nile.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Horseback riding safaris along the Nile River.</div>
+        </div>
+        
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Accommodations & Quick Facts -->
+        <aside class="detail-sidebar">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Quick Facts</h2>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Permits Required</span>
+                    <span class="detail-fact-val">None</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Min)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Max)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Next Destination</span>
+                    <span class="detail-fact-val">Sipi Falls</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Drive Time to Next</span>
+                    <span class="detail-fact-val">3h 30m (~193 km)</span>
+                </div>
+                
+                <!-- Map Container -->
+                <div id="detail-map" class="detail-map" style="height: 250px; width: 100%; display: block;"></div>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Accommodation Options</h2>
+                <div class="detail-accom-list">
+                    <!-- Lodge Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/haven.jpg" alt="2 Friends Beach / The Haven" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=2%20Friends%20Beach%20/%20The%20Haven'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-lodge">Lodge Option</span>
+                            <h3 class="detail-accom-name">2 Friends Beach / The Haven</h3>
+                            <p class="detail-accom-price">$113/night · $340 total</p>
+                            <a href="https://thehaven-uganda.com/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Camp Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/white_nile_rafting.webp" alt="White Nile Rafting Camp" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=White%20Nile%20Rafting%20Camp'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-camp">Camp Option</span>
+                            <h3 class="detail-accom-name">White Nile Rafting Camp</h3>
+                            <p class="detail-accom-price">$10/night · $30 total</p>
+                            <a href="https://raftafrica.com/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Gateway Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/home on teh nile.jpg" alt="Home on the Nile" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Home%20on%20the%20Nile'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-gateway">Gateway Option</span>
+                            <h3 class="detail-accom-name">Home on the Nile</h3>
+                            <p class="detail-accom-price">$17/night · $50 total</p>
+                            <a href="https://2friends.info/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('detail-map', {
+                scrollWheelZoom: false,
+                zoomControl: true
+            }).setView([0.4244, 33.2041], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="custom-marker">1</div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+            });
+
+            L.marker([0.4244, 33.2041], { icon: icon })
+                .addTo(map)
+                .bindPopup('<strong>Entebbe & Jinja</strong>')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

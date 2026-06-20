@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Bunyonyi - Uganda Safari Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-body">
+
+    <!-- Navigation -->
+    <nav class="detail-nav">
+        <a href="index.html" class="detail-nav-back">
+            ← Back to Safari Planner
+        </a>
+        <span class="detail-nav-logo">Uganda Safari June 2027</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="detail-hero" style="background-image: url('photos/LAKE-BUNYONYI.jpg');">
+        <div class="detail-hero-content">
+            <h1 class="detail-hero-title">Lake Bunyonyi</h1>
+            <div class="detail-meta-badges">
+                <span class="detail-badge detail-badge-accent">⏱ 3 Nights Stop</span>
+                <span class="detail-badge">🌤 Mild and breezy, ~23°C (73°F).</span>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="detail-grid">
+        <!-- Left Side: Main Travel Guide -->
+        <main class="detail-main">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Destination Overview</h2>
+                <p class="detail-desc-text">Lake Bunyonyi, meaning 'Place of many little birds,' is a picturesque freshwater lake dotted with 29 terraced islands and framed by steep terraced hillsides. It is believed to be the second deepest lake in Africa, and its safe, bilharzia-free waters make it a popular retreat for swimming, canoeing in traditional dugouts, and relaxing. The lake's peaceful atmosphere and stunning landscapes provide a perfect wind-down spot after strenuous safaris.</p>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Possible Activities</h2>
+                <div class="detail-activities-list">
+                    
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Relaxing and swimming in safe, bilharzia-free waters.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Dugout canoeing and island hopping.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Visiting local community projects on the islands.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Try a high-wire zipline adventure crossing the lake waters.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Hike up to the surrounding hills for spectacular panoramic photography.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Visit Punishment Island (Akampene) to learn about its local history.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Stand-up paddleboarding or motorboat sunset cruises.</div>
+        </div>
+        
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Accommodations & Quick Facts -->
+        <aside class="detail-sidebar">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Quick Facts</h2>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Permits Required</span>
+                    <span class="detail-fact-val">None</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Min)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Max)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Next Destination</span>
+                    <span class="detail-fact-val">Lake Mburo NP</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Drive Time to Next</span>
+                    <span class="detail-fact-val">4h 30m (~210 km)</span>
+                </div>
+                
+                <!-- Map Container -->
+                <div id="detail-map" class="detail-map" style="height: 250px; width: 100%; display: block;"></div>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Accommodation Options</h2>
+                <div class="detail-accom-list">
+                    <!-- Lodge Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/Lake-Bunyonyi-Rock-Resort-balcony.webp" alt="Lake Bunyonyi Rock Resort" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Lake%20Bunyonyi%20Rock%20Resort'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-lodge">Lodge Option</span>
+                            <h3 class="detail-accom-name">Lake Bunyonyi Rock Resort</h3>
+                            <p class="detail-accom-price">$115/night · $345 total</p>
+                            <a href="https://www.lakebunyonyirockresort.net/double-cottage/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Camp Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/lake-bunyonyi-rock-resort-2.webp" alt="Lake Bunyonyi Rock Camping" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Lake%20Bunyonyi%20Rock%20Camping'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-camp">Camp Option</span>
+                            <h3 class="detail-accom-name">Lake Bunyonyi Rock Camping</h3>
+                            <p class="detail-accom-price">$20/night · $60 total</p>
+                            <a href="https://www.lakebunyonyirockresort.net/private-camp-site/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Gateway Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/bunyonyi_overland_resort.jpg" alt="Bunyonyi Overland Resort" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Bunyonyi%20Overland%20Resort'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-gateway">Gateway Option</span>
+                            <h3 class="detail-accom-name">Bunyonyi Overland Resort</h3>
+                            <p class="detail-accom-price">$20/night · $60 total</p>
+                            <a href="https://mbzgroup.africa/bunyonyioverlandresort" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('detail-map', {
+                scrollWheelZoom: false,
+                zoomControl: true
+            }).setView([-1.2833, 29.9167], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="custom-marker">8</div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+            });
+
+            L.marker([-1.2833, 29.9167], { icon: icon })
+                .addTo(map)
+                .bindPopup('<strong>Lake Bunyonyi</strong>')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

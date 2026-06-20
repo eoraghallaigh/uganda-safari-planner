@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziwa Rhino Sanctuary - Uganda Safari Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-body">
+
+    <!-- Navigation -->
+    <nav class="detail-nav">
+        <a href="index.html" class="detail-nav-back">
+            ← Back to Safari Planner
+        </a>
+        <span class="detail-nav-logo">Uganda Safari June 2027</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="detail-hero" style="background-image: url('photos/ziwa.jpeg');">
+        <div class="detail-hero-content">
+            <h1 class="detail-hero-title">Ziwa Rhino Sanctuary</h1>
+            <div class="detail-meta-badges">
+                <span class="detail-badge detail-badge-accent">⏱ 1 Night Stop</span>
+                <span class="detail-badge">🌤 Warm and dry.</span>
+                <span class="detail-badge detail-badge-accent">🎟 Permit Required ($50)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="detail-grid">
+        <!-- Left Side: Main Travel Guide -->
+        <main class="detail-main">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Destination Overview</h2>
+                <p class="detail-desc-text">Ziwa Rhino Sanctuary is a crucial conservation project located in Nakasongola, serving as the only place in Uganda where you can see wild southern white rhinos. Established in 2005 to reintroduce rhinos back into the country's national parks, the sanctuary is home to a growing population of rhinos protected by 24-hour armed rangers. Visitors can track these magnificent, prehistoric creatures on foot, offering an intimate and thrilling wildlife encounter.</p>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Possible Activities</h2>
+                <div class="detail-activities-list">
+                    
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">On-foot rhino tracking with an experienced UWA ranger.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Guided nighttime walking safari.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Canoe ride in the Lugogo Swamp to search for the rare shoebill stork.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Guided birdwatching walks (over 300 bird species recorded).</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Nature walk to spot small mammals like bushbucks and black-and-white colobus monkeys.</div>
+        </div>
+        
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Accommodations & Quick Facts -->
+        <aside class="detail-sidebar">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Quick Facts</h2>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Permits Required</span>
+                    <span class="detail-fact-val">$50 per person</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Min)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Max)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Next Destination</span>
+                    <span class="detail-fact-val">Kibale Forest NP</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Drive Time to Next</span>
+                    <span class="detail-fact-val">5h (~285 km)</span>
+                </div>
+                
+                <!-- Map Container -->
+                <div id="detail-map" class="detail-map" style="height: 250px; width: 100%; display: block;"></div>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Accommodation Options</h2>
+                <div class="detail-accom-list">
+                    <!-- Lodge Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/ziwa_wildlife_ranch.webp" alt="Ziwa Rhino & Wildlife Ranch" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Ziwa%20Rhino%20%26%20Wildlife%20Ranch'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-lodge">Lodge Option</span>
+                            <h3 class="detail-accom-name">Ziwa Rhino & Wildlife Ranch</h3>
+                            <p class="detail-accom-price">$140/night · $140 total</p>
+                            <a href="https://ziwarhinoandwildliferanch.com/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Camp Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/ziwa.jpeg" alt="Ziwa Rhino Camping" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Ziwa%20Rhino%20Camping'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-camp">Camp Option</span>
+                            <h3 class="detail-accom-name">Ziwa Rhino Camping</h3>
+                            <p class="detail-accom-price">$25/night · $25 total</p>
+                            <a href="https://ziwarhinoandwildliferanch.com/accommodation/camping/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Gateway Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/saltek_hotel.jpg" alt="Saltek Hotel" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Saltek%20Hotel'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-gateway">Gateway Option</span>
+                            <h3 class="detail-accom-name">Saltek Hotel</h3>
+                            <p class="detail-accom-price">$15/night · $15 total</p>
+                            <a href="https://saltekhotel.com/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('detail-map', {
+                scrollWheelZoom: false,
+                zoomControl: true
+            }).setView([1.7333, 32.1], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="custom-marker">4</div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+            });
+
+            L.marker([1.7333, 32.1], { icon: icon })
+                .addTo(map)
+                .bindPopup('<strong>Ziwa Rhino Sanctuary</strong>')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

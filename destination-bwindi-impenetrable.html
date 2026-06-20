@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bwindi Impenetrable - Uganda Safari Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-body">
+
+    <!-- Navigation -->
+    <nav class="detail-nav">
+        <a href="index.html" class="detail-nav-back">
+            ← Back to Safari Planner
+        </a>
+        <span class="detail-nav-logo">Uganda Safari June 2027</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="detail-hero" style="background-image: url('photos/bwindi.jpeg');">
+        <div class="detail-hero-content">
+            <h1 class="detail-hero-title">Bwindi Impenetrable</h1>
+            <div class="detail-meta-badges">
+                <span class="detail-badge detail-badge-accent">⏱ 3 Nights Stop</span>
+                <span class="detail-badge">🌤 Cool and damp, ~20°C (68°F), 10°C at night.</span>
+                <span class="detail-badge detail-badge-accent">🎟 Permit Required ($800)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="detail-grid">
+        <!-- Left Side: Main Travel Guide -->
+        <main class="detail-main">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Destination Overview</h2>
+                <p class="detail-desc-text">Bwindi Impenetrable National Park is a UNESCO World Heritage Site consisting of a vast, ancient primeval rainforest dating back over 25,000 years. The park is globally renowned for hosting roughly half of the world's remaining population of endangered mountain gorillas. Gorilla trekking through the steep, mist-covered ridges of the park is a profound, once-in-a-lifetime experience. The forest is also rich in biodiversity, supporting hundreds of bird, butterfly, and mammal species.</p>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Possible Activities</h2>
+                <div class="detail-activities-list">
+                    
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Mountain Gorilla Trekking to spend an hour with a wild gorilla family.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Batwa cultural experience to learn about the forest's original inhabitants.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Gorilla Habituation Experience (4 hours with gorillas in Rushaga sector).</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Guided forest hikes (like the Ivy River or Kashasha Trail) crossing the park.</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Birdwatching walk in the Mubwindi Swamp (home to African green broadbill).</div>
+        </div>
+        
+        <div class="detail-activity-item">
+            <div class="detail-activity-icon">✔</div>
+            <div class="detail-activity-desc">Visit and support the Ride 4 a Woman community project in Buhoma.</div>
+        </div>
+        
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side: Accommodations & Quick Facts -->
+        <aside class="detail-sidebar">
+            <section class="detail-card">
+                <h2 class="detail-card-title">Quick Facts</h2>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Permits Required</span>
+                    <span class="detail-fact-val">$800 per person</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Min)</span>
+                    <span class="detail-fact-val">Free / Included</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Park Entry (Max)</span>
+                    <span class="detail-fact-val">$120 per person</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Next Destination</span>
+                    <span class="detail-fact-val">Lake Bunyonyi</span>
+                </div>
+                <div class="detail-fact-row">
+                    <span class="detail-fact-label">Drive Time to Next</span>
+                    <span class="detail-fact-val">2h 30m (~80 km)</span>
+                </div>
+                
+                <!-- Map Container -->
+                <div id="detail-map" class="detail-map" style="height: 250px; width: 100%; display: block;"></div>
+            </section>
+
+            <section class="detail-card">
+                <h2 class="detail-card-title">Accommodation Options</h2>
+                <div class="detail-accom-list">
+                    <!-- Lodge Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/bakiga.jpg" alt="Bakiga Lodge" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Bakiga%20Lodge'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-lodge">Lodge Option</span>
+                            <h3 class="detail-accom-name">Bakiga Lodge</h3>
+                            <p class="detail-accom-price">$125/night · $375 total</p>
+                            <a href="https://bakigalodge.org/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Camp Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/karungi.jpg" alt="Karungi Camp" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Karungi%20Camp'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-camp">Camp Option</span>
+                            <h3 class="detail-accom-name">Karungi Camp</h3>
+                            <p class="detail-accom-price">$25/night · $75 total</p>
+                            <a href="https://karungicamp.com/lodging/" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+
+                    <!-- Gateway Option -->
+                    <div class="detail-accom-item">
+                        <img src="photos/bwindi_forest_lodge.jpg" alt="Bwindi Forest Lodge" class="detail-accom-img" onerror="this.src='https://placehold.co/400x200/e7e5e4/292524?text=Bwindi%20Forest%20Lodge'">
+                        <div class="detail-accom-body">
+                            <span class="detail-accom-badge detail-accom-badge-gateway">Gateway Option</span>
+                            <h3 class="detail-accom-name">Bwindi Forest Lodge</h3>
+                            <p class="detail-accom-price">$51/night · $153 total</p>
+                            <a href="https://www.booking.com/hotel/ug/bwindi-forest-lodge.en-gb.html" target="_blank" class="detail-accom-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('detail-map', {
+                scrollWheelZoom: false,
+                zoomControl: true
+            }).setView([-1.05, 29.6167], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="custom-marker">7</div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+            });
+
+            L.marker([-1.05, 29.6167], { icon: icon })
+                .addTo(map)
+                .bindPopup('<strong>Bwindi Impenetrable</strong>')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

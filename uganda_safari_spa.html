@@ -1,0 +1,304 @@
+// --- DATA STORAGE ---
+        const itineraryData = [
+            {
+                id: 1,
+                name: "Entebbe & Jinja",
+                icon: "📍",
+                dates: "June 2 – June 4",
+                nights: 2,
+                imageUrl: "https://images.unsplash.com/photo-1437482078695-73f4e2f986d3?auto=format&fit=crop&w=800&q=80",
+                weather: "Warm and pleasant. June marks the start of the dry season, with highs around 26°C (79°F).",
+                activities: "Pick up your rental car in Entebbe on the morning of June 3rd. Drive to Jinja to see the Source of the Nile. Optional activities include a sunset Nile cruise or white-water rafting.",
+                accomMid: "<a href='https://thehaven-uganda.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>The Haven Eco River Lodge</a>",
+                accomCamp: "<a href='https://raftafrica.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Nile River Explorers Camp</a>",
+                accomGateway: "<a href='https://2friends.info/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>2 Friends Guesthouse</a> (Jinja town center)",
+                driveNextTitle: "Drive to Sipi Falls",
+                driveDist: "~193 km",
+                driveTime: "3 hours 30 mins"
+            },
+            {
+                id: 2,
+                name: "Sipi Falls",
+                icon: "📍",
+                dates: "June 4 – June 6",
+                nights: 2,
+                imageUrl: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80",
+                weather: "Cooler due to the elevation in the Mt. Elgon foothills. Highs of 22°C (72°F) and cool nights.",
+                activities: "Guided hike to the three spectacular waterfalls. Participate in a local Arabica coffee processing tour.",
+                accomMid: "<a href='https://sipiheritagelodge.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Sipi Heritage Lodge</a>",
+                accomCamp: "<a href='https://www.google.com/search?q=Moses+Campsite+Sipi+Falls' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Moses Campsite</a>",
+                accomGateway: "<a href='https://homeoffriends.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Home of Friends Guesthouse</a> (Sipi local village)",
+                driveNextTitle: "Drive to Murchison Falls NP",
+                driveDist: "~348 km",
+                driveTime: "6 hours 10 mins"
+            },
+            {
+                id: 3,
+                name: "Murchison Falls NP",
+                icon: "📍",
+                dates: "June 6 – June 9",
+                nights: 3,
+                imageUrl: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
+                weather: "Hot and dry. Expect daytime highs around 30°C (86°F).",
+                activities: "Sunrise game drives in the northern sector. A boat safari up the Nile to the base of the falls. A short hike to the 'Top of the Falls.'",
+                accomMid: "<a href='https://murchisonriverlodge.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Murchison River Lodge</a>",
+                accomCamp: "<a href='https://redchillihideaway.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Red Chilli Rest Camp</a>",
+                accomGateway: "<a href='https://masindihotel.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Masindi Hotel</a> (Masindi Town, 45m from gate)",
+                driveNextTitle: "Drive to Ziwa Rhino Sanctuary",
+                driveDist: "~78 km",
+                driveTime: "1 hour 20 mins"
+            },
+            {
+                id: 4,
+                name: "Ziwa Rhino Sanctuary",
+                icon: "📍",
+                dates: "June 9 – June 10",
+                nights: 1,
+                imageUrl: "https://images.unsplash.com/photo-1541625066922-261bd71e72d2?auto=format&fit=crop&w=800&q=80",
+                weather: "Warm and dry.",
+                activities: "On-foot rhino tracking with a ranger. Nighttime walking safari.",
+                accomMid: "<a href='https://amukalodgeuganda.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Amuka Lodge</a>",
+                accomCamp: "<a href='https://ziwarhinosanctuary.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Ziwa Rhino Guesthouse & Campsite</a>",
+                accomGateway: "Nakasongola Town Guesthouses (Basic, on main highway 15m away)",
+                driveNextTitle: "Drive to Kibale Forest NP",
+                driveDist: "~285 km",
+                driveTime: "5 hours"
+            },
+            {
+                id: 5,
+                name: "Kibale Forest NP",
+                icon: "📍",
+                dates: "June 10 – June 13",
+                nights: 3,
+                imageUrl: "https://images.unsplash.com/photo-1540205082-a9b039dbbc67?auto=format&fit=crop&w=800&q=80",
+                weather: "Humid rainforest conditions (~25°C / 77°F).",
+                activities: "Chimpanzee Trekking. Guided walk through the Bigodi Wetland Sanctuary.",
+                accomMid: "<a href='https://turacotreetops.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Turaco Treetops</a>",
+                accomCamp: "<a href='https://naturelodgesuganda.com/kibale-forest-camp/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Kibale Forest Camp</a>",
+                accomGateway: "<a href='https://www.ruwenzoriview.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Ruwenzori View Guest House</a> (Fort Portal town)",
+                driveNextTitle: "Drive to Queen Elizabeth NP",
+                driveDist: "~75 km",
+                driveTime: "1 hour 40 mins"
+            },
+            {
+                id: 6,
+                name: "Queen Elizabeth NP",
+                icon: "📍",
+                dates: "June 13 – June 16",
+                nights: 3,
+                imageUrl: "https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=800&q=80",
+                weather: "Warm and sunny (~28°C / 82°F).",
+                activities: "Kazinga Channel boat cruise. Game drives in the Kasenyi plains and Ishasha sector (tree-climbing lions).",
+                accomMid: "<a href='https://naturelodgesuganda.com/the-bush-lodge/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>The Bush Lodge</a> (Kasenyi) / <a href='https://enjojolodge.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Enjojo Lodge</a> (Ishasha)",
+                accomCamp: "UWA Public Campsites / <a href='https://ugandalodges.com/simba/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Simba Safari Camp</a>",
+                accomGateway: "<a href='http://www.sandtonhotelkasese.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Sandton Hotel</a> (Kasese town)",
+                driveNextTitle: "Drive to Bwindi Impenetrable Forest",
+                driveDist: "~270 km",
+                driveTime: "6 hours"
+            },
+            {
+                id: 7,
+                name: "Bwindi Impenetrable",
+                icon: "📍",
+                dates: "June 16 – June 19",
+                nights: 3,
+                imageUrl: "https://images.unsplash.com/photo-1564750130678-752e2e8e5831?auto=format&fit=crop&w=800&q=80",
+                weather: "Cool and damp. Highs around 20°C (68°F), dropping to 10°C (50°F) at night.",
+                activities: "Mountain Gorilla Trekking. Batwa cultural experience.",
+                accomMid: "<a href='https://ugandaexclusivecamps.com/buhoma-lodge/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Buhoma Lodge</a> or <a href='https://mahoganysprings.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Mahogany Springs</a>",
+                accomCamp: "<a href='https://buhomacommunity.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Buhoma Community Rest Camp</a>",
+                accomGateway: "Savannah Resort Hotel (Kihihi town, 45m from Buhoma gate)",
+                driveNextTitle: "Drive to Lake Bunyonyi",
+                driveDist: "~80 km",
+                driveTime: "2 hours 30 mins"
+            },
+            {
+                id: 8,
+                name: "Lake Bunyonyi",
+                icon: "📍",
+                dates: "June 19 – June 22",
+                nights: 3,
+                imageUrl: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+                weather: "Mild and breezy (~23°C / 73°F).",
+                activities: "Swimming, dugout canoeing, island hopping.",
+                accomMid: "<a href='https://birdnestbunyonyi.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>BirdNest Resort</a>",
+                accomCamp: "<a href='https://www.google.com/search?q=Byoona+Amagara+Island+Retreat' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Byoona Amagara Island Retreat</a>",
+                accomGateway: "White Horse Inn (Kabale Town, 20m before the lake)",
+                driveNextTitle: "Drive to Lake Mburo NP",
+                driveDist: "~210 km",
+                driveTime: "4 hours 30 mins"
+            },
+            {
+                id: 9,
+                name: "Lake Mburo NP",
+                icon: "📍",
+                dates: "June 22 – June 23",
+                nights: 1,
+                imageUrl: "https://images.unsplash.com/photo-1526084556449-341e3d3080ff?auto=format&fit=crop&w=800&q=80",
+                weather: "Sunny and dry (~27°C / 81°F).",
+                activities: "The only park in Uganda offering walking safaris and mountain bike safaris among zebras, giraffes, and impalas. Sunset boat cruise on the lake.",
+                accomMid: "<a href='https://rwakoborock.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Rwakobo Rock</a>",
+                accomCamp: "<a href='https://leopardrestcamp.com/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Leopard Rest Camp</a> or <a href='https://naturelodgesuganda.com/eagles-nest/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Eagles Nest</a>",
+                accomGateway: "<a href='https://igongo.co.ug/' target='_blank' class='text-emerald-600 hover:text-emerald-800 underline decoration-emerald-200 hover:decoration-emerald-500 underline-offset-2 transition-colors'>Igongo Cultural Centre</a> (Just outside park highway)",
+                driveNextTitle: "Drive to Entebbe (Departure)",
+                driveDist: "~290 km",
+                driveTime: "4 hours 30 mins (Flight at 23:50)"
+            }
+        ];
+
+        let budgetChartInstance = null;
+        let currentActiveIndex = 0;
+
+        // --- CORE INTERACTION HANDLING (ITINERARY) ---
+        
+        function initItinerary() {
+            const container = document.getElementById('timeline-container');
+            
+            itineraryData.forEach((stop, index) => {
+                const btn = document.createElement('button');
+                btn.className = `timeline-btn timeline-node w-full text-left p-4 hover:bg-stone-100 transition-colors border-l-4 border-transparent flex items-start ${index === 0 ? 'active' : ''}`;
+                btn.onclick = () => renderStopDetails(index);
+                
+                btn.innerHTML = `
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 text-xs border border-emerald-300 z-10 relative mt-0.5">
+                        ${index + 1}
+                    </div>
+                    <div class="ml-4">
+                        <div class="font-bold text-stone-800">${stop.name}</div>
+                        <div class="text-xs text-stone-500">${stop.dates} • ${stop.nights} Night${stop.nights > 1 ? 's' : ''}</div>
+                    </div>
+                `;
+                container.appendChild(btn);
+            });
+
+            // Load first stop by default
+            renderStopDetails(0);
+        }
+
+        function renderStopDetails(index) {
+            currentActiveIndex = index;
+
+            const stop = itineraryData[index];
+            const pane = document.getElementById('details-pane');
+            
+            // Update active state in timeline
+            document.querySelectorAll('.timeline-btn').forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('active');
+                    // Scroll active into view smoothly
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Build Details HTML
+            pane.innerHTML = `
+                <div class="fade-in">
+                    <img src="${stop.imageUrl}" alt="${stop.name}" onerror="this.src='https://placehold.co/800x400/e7e5e4/292524?text=${encodeURIComponent(stop.name)}'" class="w-full h-48 md:h-64 object-cover rounded-xl mb-6 shadow-sm border border-stone-200">
+                    <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
+                        <div>
+                            <h2 class="text-3xl font-extrabold text-stone-900 mb-1">Stop ${stop.id}: ${stop.name}</h2>
+                            <p class="text-emerald-700 font-medium font-mono">${stop.dates} &mdash; ${stop.nights} Night${stop.nights > 1 ? 's' : ''}</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <!-- Activities & Weather -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div class="bg-orange-50 p-5 rounded-xl border border-orange-100">
+                                <h4 class="font-bold text-orange-900 mb-2 flex items-center"><span class="mr-2">📸</span> Key Activities</h4>
+                                <p class="text-stone-700 text-sm leading-relaxed">${stop.activities}</p>
+                            </div>
+                            <div class="bg-sky-50 p-5 rounded-xl border border-sky-100">
+                                <h4 class="font-bold text-sky-900 mb-2 flex items-center"><span class="mr-2">🌤️</span> Expected Weather</h4>
+                                <p class="text-stone-700 text-sm leading-relaxed">${stop.weather}</p>
+                            </div>
+                        </div>
+
+                        <!-- Accommodation -->
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-800 mb-4 flex items-center"><span class="mr-2">🏨</span> Accommodation Options</h3>
+                            <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
+                                <div class="grid grid-cols-1 md:grid-cols-3">
+                                    <div class="p-5 border-b md:border-b-0 md:border-r border-stone-200">
+                                        <div class="text-xs uppercase tracking-wider text-stone-500 font-bold mb-1">Mid-Range Lodge</div>
+                                        <p class="text-stone-800 font-medium text-sm">${stop.accomMid}</p>
+                                    </div>
+                                    <div class="p-5 border-b md:border-b-0 md:border-r border-stone-200">
+                                        <div class="text-xs uppercase tracking-wider text-stone-500 font-bold mb-1">Budget / Camping</div>
+                                        <p class="text-stone-800 font-medium text-sm">${stop.accomCamp}</p>
+                                    </div>
+                                    <div class="p-5">
+                                        <div class="text-xs uppercase tracking-wider text-stone-500 font-bold mb-1">Gateway Town (Outside)</div>
+                                        <p class="text-stone-800 font-medium text-sm">${stop.accomGateway}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Next Drive Widget -->
+                        <div class="mt-8 bg-stone-800 rounded-xl p-5 text-white shadow-md relative overflow-hidden">
+                            <div class="absolute right-0 top-0 opacity-10 text-8xl transform translate-x-4 -translate-y-4">🚗</div>
+                            <h4 class="font-bold text-stone-200 mb-1 flex items-center relative z-10"><span class="mr-2">➡️</span> Next: ${stop.driveNextTitle}</h4>
+                            <div class="flex space-x-6 mt-2 relative z-10">
+                                <div>
+                                    <span class="block text-xs text-stone-400 uppercase tracking-wider">Distance</span>
+                                    <span class="font-mono text-lg">${stop.driveDist}</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-stone-400 uppercase tracking-wider">Est. Time</span>
+                                    <span class="font-mono text-lg">${stop.driveTime}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+                        <div class="bg-white p-6 rounded-xl border-l-4 border-sky-500 shadow-sm cursor-pointer hover:bg-stone-50 transition-colors"
+                            onclick="highlightChart(1)">
+                            <h4 class="font-bold text-lg text-stone-800 mb-1">Scenario B: 100% Mid-Range</h4>
+                            <p class="text-stone-600 text-sm mb-2">Comfortable beds and en-suite bathrooms every night.
+                                Standard 4x4.</p>
+                            <div class="flex justify-between text-sm">
+                                <span>Vehicle: $1,365</span>
+                                <span>Lodging: $4,200</span>
+                                <span class="font-bold text-sky-700">Total: ~$8,695</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl border-l-4 border-orange-500 shadow-sm ring-2 ring-orange-200 cursor-pointer hover:bg-stone-50 transition-colors"
+                            onclick="highlightChart(2)">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-bold text-lg text-stone-800">Scenario C: "Mixed" Approach</h4>
+                                <span
+                                    class="bg-orange-100 text-orange-800 text-xs font-bold px-2 py-1 rounded uppercase">Recommended</span>
+                            </div>
+                            <p class="text-stone-600 text-sm mb-2">Rent the rooftop tent, but alternate 14 nights
+                                camping with 7
+                                nights in lodges to refresh.</p>
+                            <div class="flex justify-between text-sm">
+                                <span>Vehicle: $1,785</span>
+                                <span>Lodging: $1,890</span>
+                                <span class="font-bold text-orange-700">Total: ~$6,805</span>
+                            </div>
+                        </div>
+                    </div>
+<!-- ... existing code ... -->
+        // --- CHART.JS IMPLEMENTATION (BUDGET) ---
+
+        function initBudgetChart() {
+            const ctx = document.getElementById('budgetChart').getContext('2d');
+
+            const labels = ['A: 100% Camping', 'B: 100% Mid-Range', 'C: Mixed (Rec.)'];
+
+            // Data based on the source report
+            const fixedFees = [3130, 3130, 3130];
+            const vehicleCost = [1785, 1365, 1785];
+            const accommCost = [735, 4200, 1890];
+
+            budgetChartInstance = new Chart(ctx, {
+                type: 'bar',
+<!-- ... existing code ... -->

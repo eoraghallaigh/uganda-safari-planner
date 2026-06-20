@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Safari 2027 – Trip Planner</title>
+    <meta name="description" content="Interactive Uganda safari trip planner for June 2027. Plan your itinerary, compare costs, and explore accommodation options.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-label">June 2027</p>
+            <h1 class="hero-title">Uganda</h1>
+            <p class="hero-subtitle">Safari & Adventure</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" id="hero-days">21</span>
+                    <span class="hero-stat-label">Days</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" id="hero-stops">9</span>
+                    <span class="hero-stat-label">Destinations</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">~1,830</span>
+                    <span class="hero-stat-label">km by Road</span>
+                </div>
+            </div>
+            <a href="#itinerary" class="hero-cta">Explore Itinerary ↓</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <div class="nav-brand">🇺🇬 Uganda 2027</div>
+            <div class="nav-links">
+                <a href="#itinerary" class="nav-link">Itinerary</a>
+                <a href="#vehicles" class="nav-link">Vehicle</a>
+                <a href="#map-section" class="nav-link">Map</a>
+                <a href="#costs" class="nav-link">Costs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="section">
+        <div class="section-header">
+            <p class="section-label">Plan Your Journey</p>
+            <h2 class="section-title">Itinerary</h2>
+            <p class="section-desc">Toggle destinations on or off to customize your trip and see the impact on costs. Dates adjust automatically.</p>
+        </div>
+
+        <div class="itinerary-controls">
+            <button id="btn-select-all" class="control-btn" onclick="selectAll()">Select All</button>
+            <button id="btn-deselect-all" class="control-btn control-btn-outline" onclick="deselectAll()">Deselect All</button>
+            <div class="trip-summary-pill">
+                <span id="summary-nights">21</span> nights · <span id="summary-stops">9</span> stops · <span id="summary-dates"></span>
+            </div>
+        </div>
+
+        <div id="itinerary-cards" class="itinerary-grid"></div>
+    </section>
+
+    <!-- Vehicle Options Section -->
+    <section id="vehicles" class="section section-alt">
+        <div class="section-header">
+            <p class="section-label">Choose Your Ride</p>
+            <h2 class="section-title">Vehicle Options</h2>
+            <p class="section-desc">All prices are per day for 2 people. Costs update based on your selected itinerary length.</p>
+        </div>
+
+        <div class="vehicle-grid">
+            <div class="vehicle-card" id="vehicle-rav4">
+                <div class="vehicle-img-wrap">
+                    <img src="photos/Rav4.jpg" alt="Toyota RAV4" class="vehicle-img">
+                    <span class="vehicle-badge vehicle-badge-budget">Budget</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3 class="vehicle-name">Toyota RAV4</h3>
+                    <p class="vehicle-subtitle">+ Camping Gear</p>
+                    <div class="vehicle-rate">
+                        <span class="vehicle-rate-amount">$65</span>
+                        <span class="vehicle-rate-unit">/ day</span>
+                    </div>
+                    <div class="vehicle-total">
+                        <span class="vehicle-total-label">Per person (<span class="vehicle-days">21</span> days)</span>
+                        <span class="vehicle-total-amount" id="vehicle-rav4-total">$683</span>
+                    </div>
+                    <ul class="vehicle-features">
+                        <li>Compact &amp; fuel-efficient</li>
+                        <li>Camping gear included</li>
+                        <li>Good for paved roads</li>
+                        <li>Less ground clearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vehicle-card" id="vehicle-lc">
+                <div class="vehicle-img-wrap">
+                    <img src="photos/TZ-landcruiser.jpg" alt="Toyota Land Cruiser" class="vehicle-img">
+                    <span class="vehicle-badge vehicle-badge-mid">Mid-Range</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3 class="vehicle-name">Toyota Land Cruiser</h3>
+                    <p class="vehicle-subtitle">+ Camping Gear</p>
+                    <div class="vehicle-rate">
+                        <span class="vehicle-rate-amount">$95</span>
+                        <span class="vehicle-rate-unit">/ day</span>
+                    </div>
+                    <div class="vehicle-total">
+                        <span class="vehicle-total-label">Per person (<span class="vehicle-days">21</span> days)</span>
+                        <span class="vehicle-total-amount" id="vehicle-lc-total">$998</span>
+                    </div>
+                    <ul class="vehicle-features">
+                        <li>Rugged 4x4 capability</li>
+                        <li>Camping gear included</li>
+                        <li>High ground clearance</li>
+                        <li>Handles all terrain</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vehicle-card vehicle-card-featured" id="vehicle-rtt">
+                <div class="vehicle-img-wrap">
+                    <img src="photos/landcruiser_rooftop_tent.jpg" alt="Land Cruiser with Rooftop Tent" class="vehicle-img">
+                    <span class="vehicle-badge vehicle-badge-premium">Premium</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3 class="vehicle-name">Land Cruiser RTT</h3>
+                    <p class="vehicle-subtitle">Rooftop Tent</p>
+                    <div class="vehicle-rate">
+                        <span class="vehicle-rate-amount">$110</span>
+                        <span class="vehicle-rate-unit">/ day</span>
+                    </div>
+                    <div class="vehicle-total">
+                        <span class="vehicle-total-label">Per person (<span class="vehicle-days">21</span> days)</span>
+                        <span class="vehicle-total-amount" id="vehicle-rtt-total">$1,155</span>
+                    </div>
+                    <ul class="vehicle-features">
+                        <li>Full 4x4 capability</li>
+                        <li>Built-in rooftop tent</li>
+                        <li>Camp anywhere flexibility</li>
+                        <li>Ultimate safari experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map-section" class="section section-dark">
+        <div class="section-header">
+            <p class="section-label section-label-light">Route Overview</p>
+            <h2 class="section-title section-title-light">Your Route</h2>
+            <p class="section-desc section-desc-light">An interactive map showing your selected destinations and driving route.</p>
+        </div>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <!-- Costs Section -->
+    <section id="costs" class="section">
+        <div class="section-header">
+            <p class="section-label">Budget Breakdown</p>
+            <h2 class="section-title">Trip Costs</h2>
+            <p class="section-desc">Per-person costs based on your selected destinations. Toggle destinations above to see the impact.</p>
+        </div>
+
+        <div class="cost-cards-row">
+            <div class="cost-card cost-card-min" id="cost-card-min">
+                <div class="cost-card-label">Minimum Cost</div>
+                <div class="cost-card-sublabel">Camping + RAV4</div>
+                <div class="cost-card-amount" id="cost-min">$4,313</div>
+                <div class="cost-card-per">per person</div>
+            </div>
+            <div class="cost-card cost-card-mid" id="cost-card-mid">
+                <div class="cost-card-label">Mid-Range</div>
+                <div class="cost-card-sublabel">Gateway Towns + LC</div>
+                <div class="cost-card-amount" id="cost-mid">$5,306</div>
+                <div class="cost-card-per">per person</div>
+            </div>
+            <div class="cost-card cost-card-max" id="cost-card-max">
+                <div class="cost-card-label">Maximum Cost</div>
+                <div class="cost-card-sublabel">Lodges + Land Cruiser RTT</div>
+                <div class="cost-card-amount" id="cost-max">$6,970</div>
+                <div class="cost-card-per">per person</div>
+            </div>
+        </div>
+
+        <!-- Detailed Breakdown -->
+        <div class="cost-breakdown">
+            <h3 class="breakdown-title">Detailed Breakdown</h3>
+            <div class="breakdown-table-wrap">
+                <table class="breakdown-table" id="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Min (Camping)</th>
+                            <th>Mid (Gateway)</th>
+                            <th>Max (Lodge)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="breakdown-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Accommodation options are now shown inline within each itinerary card above -->
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-inner">
+            <p>Uganda Safari 2027 – Trip Planner</p>
+            <p class="footer-links">
+                <a href="https://docs.google.com/spreadsheets/d/1TuGggRMyNC3-8AH932srAhKVGj83UOMVGsIv9P8YF_U/edit?gid=434951232#gid=434951232" target="_blank">View Spreadsheet</a>
+                <span>·</span>
+                <a href="https://gemini.google.com/share/8ef7a690a552" target="_blank">Gemini Chat</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Sticky Bottom Ticker -->
+    <div id="sticky-ticker" class="sticky-ticker">
+        <div class="ticker-inner">
+            <div class="ticker-group">
+                <div class="ticker-item ticker-duration">
+                    <span class="ticker-label">Duration</span>
+                    <span class="ticker-value"><strong id="ticker-nights">21</strong> nights</span>
+                </div>
+                
+                <div class="ticker-divider"></div>
+                
+                <div class="ticker-item ticker-vehicle">
+                    <span class="ticker-label">Vehicle Option</span>
+                    <select id="ticker-vehicle-select" class="ticker-select" onchange="handleTickerVehicleChange(this.value)">
+                        <option value="rav4" selected>Toyota RAV4 ($65/day)</option>
+                        <option value="lc">Toyota Land Cruiser ($95/day)</option>
+                        <option value="rtt">Toyota Land Cruiser RTT ($110/day)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="ticker-divider hide-mobile"></div>
+            
+            <div class="ticker-costs-container">
+                <div class="ticker-costs-header">Cost per person</div>
+                <div class="ticker-group ticker-costs-group">
+                    <div class="ticker-cost-item ticker-camp">
+                        <span class="ticker-cost-label">Camping</span>
+                        <span class="ticker-cost-amount" id="ticker-cost-camp">$0</span>
+                    </div>
+                    <div class="ticker-cost-item ticker-gateway">
+                        <span class="ticker-cost-label">Gateway</span>
+                        <span class="ticker-cost-amount" id="ticker-cost-gateway">$0</span>
+                    </div>
+                    <div class="ticker-cost-item ticker-lodge">
+                        <span class="ticker-cost-label">Lodge</span>
+                        <span class="ticker-cost-amount" id="ticker-cost-lodge">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
