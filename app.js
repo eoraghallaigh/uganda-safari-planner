@@ -21,7 +21,7 @@ const destinations = [
         driveNext: { to: "Sipi Falls", dist: "~193 km", time: "3h 30m" },
         lodge: { name: "2 Friends Beach / The Haven", rate: 340 / 3, url: "https://thehaven-uganda.com/", photo: "photos/haven.jpg" },
         camp: { name: "White Nile Rafting Camp", rate: 30 / 3, url: "https://raftafrica.com/", photo: "photos/white_nile_rafting.webp" },
-        gateway: { name: "Home on the Nile", rate: 50 / 3, url: "https://2friends.info/", photo: "photos/home on teh nile.jpg" },
+        gateway: { name: "Home on the Nile", rate: 50 / 3, url: "https://homeonthenile.com/", photo: "photos/home on teh nile.jpg" },
         permits: 0,
         parkFeeMin: 0,
         parkFeeMax: 0,
