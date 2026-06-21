@@ -308,7 +308,7 @@ function renderItinerary() {
                     <a href="${dest.gateway.url}" target="_blank" class="itin-accom-opt itin-accom-gateway" onclick="event.stopPropagation()">
                         <img class="itin-accom-photo" src="${dest.gateway.photo}" alt="${dest.gateway.name}" onerror="this.style.display='none'">
                         <div class="itin-accom-info">
-                            <span class="itin-accom-type">Gateway</span>
+                            <span class="itin-accom-type">Town/Off-park</span>
                             <span class="itin-accom-name">${dest.gateway.name}</span>
                             <span class="itin-accom-price">$${Math.round(dest.gateway.rate)}/n · $${Math.round(dest.gateway.rate * dest.nights)}</span>
                         </div>
