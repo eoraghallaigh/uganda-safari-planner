@@ -17,7 +17,7 @@ const destinations = [
         permanent: true,
         imageUrl: "",
         weather: "",
-        description: "Entebbe, situated on a peninsula in Lake Victoria, serves as Uganda's tranquil gateway, boasting lush botanical gardens and a relaxed lakeside atmosphere.",
+        description: "Arrive in Entebbe in the evening and stay at 2 Friends Beach Hotel. Vehicles to be delivered to the hotel the following morning.",
         activities: "Pick up rental car in Entebbe.",
         lat: 0.0512, lng: 32.4637,
         driveNext: { to: "Jinja", dist: "~80 km", time: "2h" },
