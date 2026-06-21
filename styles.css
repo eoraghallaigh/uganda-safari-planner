@@ -1691,3 +1691,26 @@ a:hover { color: var(--accent-warm); }
     z-index: 1;
 }
 
+/* Mini Card Styling for Entebbe */
+.itin-card-mini {
+    cursor: default !important;
+}
+
+.itin-card-mini .itin-card-main {
+    grid-template-columns: 1fr auto;
+    cursor: default !important;
+}
+
+.itin-card-mini .itin-body {
+    padding: 16px 20px;
+}
+
+.itin-card-mini .itin-name {
+    font-size: 1.3rem;
+}
+
+.itin-card-mini .itin-accom-options {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+}
+

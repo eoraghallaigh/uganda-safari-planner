@@ -9,19 +9,40 @@ const TRIP_START = new Date(2027, 5, 14); // June 14, 2027 (mid-June)
 const destinations = [
     {
         id: 1,
-        name: "Entebbe & Jinja",
-        slug: "entebbe-jinja",
-        nights: 3,
+        name: "Entebbe",
+        slug: "entebbe",
+        nights: 1,
+        enabled: true,
+        mini: true,
+        permanent: true,
+        imageUrl: "",
+        weather: "",
+        description: "Entebbe, situated on a peninsula in Lake Victoria, serves as Uganda's tranquil gateway, boasting lush botanical gardens and a relaxed lakeside atmosphere.",
+        activities: "Pick up rental car in Entebbe. Explore Entebbe Botanical Gardens for birdwatching and monkey sightings.",
+        lat: 0.0512, lng: 32.4637,
+        driveNext: { to: "Jinja", dist: "~80 km", time: "2h" },
+        lodge: { name: "2 Friends Beach Hotel", rate: 150, url: "https://2friendshotel.com/", photo: "photos/haven.jpg" },
+        camp: { name: "2 Friends Beach Hotel", rate: 150, url: "https://2friendshotel.com/", photo: "photos/haven.jpg" },
+        gateway: { name: "2 Friends Beach Hotel", rate: 150, url: "https://2friendshotel.com/", photo: "photos/haven.jpg" },
+        permits: 0,
+        parkFeeMin: 0,
+        parkFeeMax: 0,
+    },
+    {
+        id: 10,
+        name: "Jinja",
+        slug: "jinja",
+        nights: 2,
         enabled: true,
         imageUrl: "photos/jinja.jpg",
         weather: "Warm and pleasant. Start of dry season, ~26°C (79°F).",
-        description: "Entebbe, situated on a peninsula in Lake Victoria, serves as Uganda's tranquil gateway, boasting lush botanical gardens and a relaxed lakeside atmosphere. A drive east leads to Jinja, the historical adventure capital of East Africa, famously positioned at the source of the Nile River. Here, the Nile flows out of Lake Victoria, offering world-class white-water rafting, kayaking, and scenic sunset boat cruises along the riverbanks, surrounded by colonial-era architecture and vibrant local markets.",
-        activities: "Pick up rental car in Entebbe. Drive to Jinja to see the Source of the Nile. Optional sunset Nile cruise or white-water rafting.",
+        description: "Jinja is the historical adventure capital of East Africa, famously positioned at the source of the Nile River. Here, the Nile flows out of Lake Victoria, offering world-class white-water rafting, kayaking, and scenic sunset boat cruises along the riverbanks, surrounded by colonial-era architecture and vibrant local markets.",
+        activities: "Drive to Jinja to see the Source of the Nile. Experience sunset Nile cruise or white-water rafting. Try stand-up paddleboarding (SUP) or kayaking on the Nile. Take a quad biking or mountain biking tour along the banks of the Nile. Horseback riding safaris along the Nile River.",
         lat: 0.4244, lng: 33.2041,
         driveNext: { to: "Sipi Falls", dist: "~193 km", time: "3h 30m" },
-        lodge: { name: "2 Friends Beach / The Haven", rate: 340 / 3, url: "https://thehaven-uganda.com/", photo: "photos/haven.jpg" },
-        camp: { name: "White Nile Rafting Camp", rate: 30 / 3, url: "https://raftafrica.com/", photo: "photos/white_nile_rafting.webp" },
-        gateway: { name: "Home on the Nile", rate: 50 / 3, url: "https://homeonthenile.com/", photo: "photos/home on teh nile.jpg" },
+        lodge: { name: "The Haven", rate: 95, url: "https://thehaven-uganda.com/", photo: "photos/haven.jpg" },
+        camp: { name: "White Nile Rafting Camp", rate: 10, url: "https://raftafrica.com/", photo: "photos/white_nile_rafting.webp" },
+        gateway: { name: "Home on the Nile", rate: 25, url: "https://homeonthenile.com/", photo: "photos/home on teh nile.jpg" },
         permits: 0,
         parkFeeMin: 0,
         parkFeeMax: 0,
@@ -258,71 +279,113 @@ function renderItinerary() {
         }
 
         const card = document.createElement('div');
-        card.className = `itin-card ${isEnabled ? '' : 'disabled'} animate-in`;
+        card.className = `itin-card ${isEnabled ? '' : 'disabled'} ${dest.mini ? 'itin-card-mini' : ''} animate-in`;
         card.style.animationDelay = `${index * 0.06}s`;
-        card.onclick = () => {
-            window.location.href = `destination-${dest.slug}.html`;
-        };
+        if (dest.mini) {
+            card.style.cursor = 'default';
+        } else {
+            card.onclick = () => {
+                window.location.href = `destination-${dest.slug}.html`;
+            };
+        }
 
-        card.innerHTML = `
-            <div class="itin-card-main">
-                <img class="itin-image" src="${dest.imageUrl}" alt="${dest.name}" 
-                    onerror="this.src='https://placehold.co/400x300/e7e5e4/292524?text=${encodeURIComponent(dest.name)}'">
-                <div class="itin-body">
-                    <div class="itin-stop-badge">${isEnabled && dated ? `Stop ${datedDests.indexOf(dated) + 1}` : 'Removed'}</div>
-                    <div class="itin-name">${dest.name}</div>
-                    <div class="itin-dates">${isEnabled && dated ? dated.dateStr : `${dest.nights} night${dest.nights > 1 ? 's' : ''} – not included`}</div>
-                    <div class="itin-activities">${dest.activities}</div>
-                    <div class="itin-weather">🌤 ${dest.weather}</div>
-                    <div class="itin-guide-link-wrap">
-                        <a href="destination-${dest.slug}.html" class="btn-guide-link" onclick="event.stopPropagation()">View Travel Guide &amp; Details →</a>
+        if (dest.mini) {
+            card.innerHTML = `
+                <div class="itin-card-main">
+                    <div class="itin-body">
+                        <div class="itin-stop-badge">${isEnabled && dated ? `Stop ${datedDests.indexOf(dated) + 1}` : 'Removed'}</div>
+                        <div class="itin-name">${dest.name}</div>
+                        <div class="itin-dates">${isEnabled && dated ? dated.dateStr : `${dest.nights} night${dest.nights > 1 ? 's' : ''} – not included`}</div>
+                        <div class="itin-activities">${dest.activities}</div>
+                    </div>
+                    <div class="itin-right">
+                        <div>
+                            <div class="itin-nights">${dest.nights}</div>
+                            <div class="itin-nights-label">Night${dest.nights > 1 ? 's' : ''}</div>
+                        </div>
                     </div>
                 </div>
-                <div class="itin-right">
-                    <div>
-                        <div class="itin-nights">${dest.nights}</div>
-                        <div class="itin-nights-label">Night${dest.nights > 1 ? 's' : ''}</div>
+                <div class="itin-accom">
+                    <div class="itin-accom-title">🏨 Accommodation</div>
+                    <div class="itin-accom-options">
+                        <a href="${dest.lodge.url}" target="_blank" class="itin-accom-opt itin-accom-lodge" onclick="event.stopPropagation()">
+                            <div class="itin-accom-info">
+                                <span class="itin-accom-type">Hotel</span>
+                                <span class="itin-accom-name">${dest.lodge.name}</span>
+                                <span class="itin-accom-price">$${Math.round(dest.lodge.rate)}/night</span>
+                            </div>
+                        </a>
                     </div>
-                    <button class="itin-toggle ${isEnabled ? '' : 'off'}" id="toggle-${index}" onclick="event.stopPropagation(); toggleDestination(${index})"></button>
                 </div>
-            </div>
-            <div class="itin-accom">
-                <div class="itin-accom-title">🏨 Where to Stay</div>
-                <div class="itin-accom-options">
-                    <a href="${dest.lodge.url}" target="_blank" class="itin-accom-opt itin-accom-lodge" onclick="event.stopPropagation()">
-                        <img class="itin-accom-photo" src="${dest.lodge.photo}" alt="${dest.lodge.name}" onerror="this.style.display='none'">
-                        <div class="itin-accom-info">
-                            <span class="itin-accom-type">Lodge</span>
-                            <span class="itin-accom-name">${dest.lodge.name}</span>
-                            <span class="itin-accom-price">$${Math.round(dest.lodge.rate)}/n · $${Math.round(dest.lodge.rate * dest.nights)}</span>
+                ${isEnabled && dest.driveNext && nextEnabled ? `
+                <div class="itin-drive">
+                    <span class="itin-drive-icon">🚗</span>
+                    <span>Drive to <strong>${nextEnabled.name}</strong></span>
+                    <span class="itin-drive-detail">${dest.driveNext.dist}</span>
+                    <span class="itin-drive-detail">${dest.driveNext.time}</span>
+                </div>` : ''}
+            `;
+        } else {
+            card.innerHTML = `
+                <div class="itin-card-main">
+                    <img class="itin-image" src="${dest.imageUrl}" alt="${dest.name}" 
+                        onerror="this.src='https://placehold.co/400x300/e7e5e4/292524?text=${encodeURIComponent(dest.name)}'">
+                    <div class="itin-body">
+                        <div class="itin-stop-badge">${isEnabled && dated ? `Stop ${datedDests.indexOf(dated) + 1}` : 'Removed'}</div>
+                        <div class="itin-name">${dest.name}</div>
+                        <div class="itin-dates">${isEnabled && dated ? dated.dateStr : `${dest.nights} night${dest.nights > 1 ? 's' : ''} – not included`}</div>
+                        <div class="itin-activities">${dest.activities}</div>
+                        <div class="itin-weather">🌤 ${dest.weather}</div>
+                        <div class="itin-guide-link-wrap">
+                            <a href="destination-${dest.slug}.html" class="btn-guide-link" onclick="event.stopPropagation()">View Travel Guide &amp; Details →</a>
                         </div>
-                    </a>
-                    <a href="${dest.camp.url}" target="_blank" class="itin-accom-opt itin-accom-camp" onclick="event.stopPropagation()">
-                        <img class="itin-accom-photo" src="${dest.camp.photo}" alt="${dest.camp.name}" onerror="this.style.display='none'">
-                        <div class="itin-accom-info">
-                            <span class="itin-accom-type">Camp</span>
-                            <span class="itin-accom-name">${dest.camp.name}</span>
-                            <span class="itin-accom-price">$${Math.round(dest.camp.rate)}/n · $${Math.round(dest.camp.rate * dest.nights)}</span>
+                    </div>
+                    <div class="itin-right">
+                        <div>
+                            <div class="itin-nights">${dest.nights}</div>
+                            <div class="itin-nights-label">Night${dest.nights > 1 ? 's' : ''}</div>
                         </div>
-                    </a>
-                    <a href="${dest.gateway.url}" target="_blank" class="itin-accom-opt itin-accom-gateway" onclick="event.stopPropagation()">
-                        <img class="itin-accom-photo" src="${dest.gateway.photo}" alt="${dest.gateway.name}" onerror="this.style.display='none'">
-                        <div class="itin-accom-info">
-                            <span class="itin-accom-type">Town/Off-park</span>
-                            <span class="itin-accom-name">${dest.gateway.name}</span>
-                            <span class="itin-accom-price">$${Math.round(dest.gateway.rate)}/n · $${Math.round(dest.gateway.rate * dest.nights)}</span>
-                        </div>
-                    </a>
+                        ${dest.permanent ? '' : `<button class="itin-toggle ${isEnabled ? '' : 'off'}" id="toggle-${index}" onclick="event.stopPropagation(); toggleDestination(${index})"></button>`}
+                    </div>
                 </div>
-            </div>
-            ${isEnabled && dest.driveNext && nextEnabled ? `
-            <div class="itin-drive">
-                <span class="itin-drive-icon">🚗</span>
-                <span>Drive to <strong>${nextEnabled.name}</strong></span>
-                <span class="itin-drive-detail">${dest.driveNext.dist}</span>
-                <span class="itin-drive-detail">${dest.driveNext.time}</span>
-            </div>` : ''}
-        `;
+                <div class="itin-accom">
+                    <div class="itin-accom-title">🏨 Where to Stay</div>
+                    <div class="itin-accom-options">
+                        <a href="${dest.lodge.url}" target="_blank" class="itin-accom-opt itin-accom-lodge" onclick="event.stopPropagation()">
+                            <img class="itin-accom-photo" src="${dest.lodge.photo}" alt="${dest.lodge.name}" onerror="this.style.display='none'">
+                            <div class="itin-accom-info">
+                                <span class="itin-accom-type">Lodge</span>
+                                <span class="itin-accom-name">${dest.lodge.name}</span>
+                                <span class="itin-accom-price">$${Math.round(dest.lodge.rate)}/n · $${Math.round(dest.lodge.rate * dest.nights)}</span>
+                            </div>
+                        </a>
+                        <a href="${dest.camp.url}" target="_blank" class="itin-accom-opt itin-accom-camp" onclick="event.stopPropagation()">
+                            <img class="itin-accom-photo" src="${dest.camp.photo}" alt="${dest.camp.name}" onerror="this.style.display='none'">
+                            <div class="itin-accom-info">
+                                <span class="itin-accom-type">Camp</span>
+                                <span class="itin-accom-name">${dest.camp.name}</span>
+                                <span class="itin-accom-price">$${Math.round(dest.camp.rate)}/n · $${Math.round(dest.camp.rate * dest.nights)}</span>
+                            </div>
+                        </a>
+                        <a href="${dest.gateway.url}" target="_blank" class="itin-accom-opt itin-accom-gateway" onclick="event.stopPropagation()">
+                            <img class="itin-accom-photo" src="${dest.gateway.photo}" alt="${dest.gateway.name}" onerror="this.style.display='none'">
+                            <div class="itin-accom-info">
+                                <span class="itin-accom-type">Town/Off-park</span>
+                                <span class="itin-accom-name">${dest.gateway.name}</span>
+                                <span class="itin-accom-price">$${Math.round(dest.gateway.rate)}/n · $${Math.round(dest.gateway.rate * dest.nights)}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                ${isEnabled && dest.driveNext && nextEnabled ? `
+                <div class="itin-drive">
+                    <span class="itin-drive-icon">🚗</span>
+                    <span>Drive to <strong>${nextEnabled.name}</strong></span>
+                    <span class="itin-drive-detail">${dest.driveNext.dist}</span>
+                    <span class="itin-drive-detail">${dest.driveNext.time}</span>
+                </div>` : ''}
+            `;
+        }
 
         container.appendChild(card);
     });
@@ -331,6 +394,8 @@ function renderItinerary() {
 // ---------- TOGGLE DESTINATIONS ----------
 
 function toggleDestination(index) {
+    if (destinations[index].permanent) return;
+
     // Don't allow disabling if less than 2 would remain
     const enabledCount = destinations.filter(d => d.enabled).length;
     if (destinations[index].enabled && enabledCount <= 2) return;
@@ -345,9 +410,9 @@ function selectAll() {
 }
 
 function deselectAll() {
-    // Keep first and last
+    // Keep first and last, and any permanent ones
     destinations.forEach((d, i) => {
-        d.enabled = (i === 0 || i === destinations.length - 1);
+        d.enabled = (i === 0 || i === destinations.length - 1 || d.permanent);
     });
     updateAll();
 }
